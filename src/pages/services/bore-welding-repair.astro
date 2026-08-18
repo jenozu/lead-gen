@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuoteCalculator from '../../components/QuoteCalculator.astro';
+
+const title = 'Bore Welding Repair Ontario | On-Site Weld Buildup & Restoration';
+const description = 'Professional bore welding repair and weld buildup services for worn heavy equipment bores across Ontario. MIG/TIG welding before precision line boring. 24/7 emergency available.';
+---
+
+<BaseLayout title={title} description={description} canonical="/services/bore-welding-repair" schema="Service" serviceType="Bore Welding Repair">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16 md:py-24">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <nav aria-label="Breadcrumb" class="mb-6 text-blue-200 text-sm">
+          <ol class="flex items-center space-x-2">
+            <li><a href="/" class="hover:text-white">Home</a></li>
+            <li aria-hidden="true">›</li>
+            <li class="text-white font-medium" aria-current="page">Bore Welding Repair</li>
+          </ol>
+        </nav>
+        <h1 class="text-3xl md:text-5xl font-bold mb-6">Bore Welding Repair Services in Ontario</h1>
+        <p class="text-xl text-blue-100 mb-8 max-w-2xl">
+          When a bore is too worn for line boring alone, weld buildup restores material before precision machining — saving the component and extending equipment life at a fraction of replacement cost.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/emergency/24-7-line-boring" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
+            24/7 Emergency Service
+          </a>
+          <a href="#quote" class="bg-white hover:bg-gray-100 text-blue-700 px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
+            Get Free Estimate
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Is Bore Welding -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">What Is Bore Welding Repair?</h2>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>When a pivot bore has worn beyond the range that line boring alone can correct — or when the bore wall has cracked or pitted — bore welding is the first step in a two-stage repair process. A skilled welder deposits quality filler material inside the worn bore, rebuilding the surface back to a size that allows precision machining to restore the bore to its original dimensions.</p>
+          <p>The process begins with a thorough inspection and cleaning of the bore surface. Pre-heat is applied to the parent metal to minimize thermal shock and reduce the risk of cracking. MIG or TIG welding deposits controlled layers of compatible alloy filler, building up the bore surface evenly. After welding, controlled post-heat treatment reduces residual stress in the material. Once cooled and inspected, the rebuilt bore is precision line-bored to the final specified dimension.</p>
+          <p>The result is a bore that is structurally sound, dimensionally accurate, and ready for a new pin and bushing — often for 60–75% less than the cost of replacing the boom, stick, or housing that the bore is part of.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- When Is It Needed -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">When Is Bore Welding Required?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: 'Excessive Wear', desc: 'The bore has worn more than 3–6mm beyond nominal size, exceeding what line boring can safely remove.' },
+            { title: 'Oval or Egg-Shaped Bore', desc: 'Asymmetric wear has left the bore out-of-round beyond what cutting alone can fix without removing too much wall material.' },
+            { title: 'Cracked or Pitted Surface', desc: 'Surface cracks, pitting, or spalling from contamination or impact require material restoration before machining.' },
+            { title: 'Corroded Bore Wall', desc: 'Rust or corrosion has eaten into the bore wall, weakening the surface and requiring buildup before precision machining.' },
+          ].map(item => (
+            <div class="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
+              <h3 class="font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p class="text-gray-600 text-sm">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">The Bore Welding Process</h2>
+        <ol class="space-y-6">
+          {[
+            { step: '1', title: 'Inspection & Measurement', desc: 'The bore is measured to determine total wear, geometry, and material condition.' },
+            { step: '2', title: 'Surface Preparation', desc: 'Grease, oil, and contamination are removed. Damaged surface material is ground back to clean metal.' },
+            { step: '3', title: 'Pre-Heat', desc: 'The parent metal is pre-heated to the correct temperature for the alloy, reducing thermal stress during welding.' },
+            { step: '4', title: 'Weld Buildup', desc: 'Compatible filler alloy is deposited in controlled layers until the bore is built up to the correct oversize.' },
+            { step: '5', title: 'Post-Heat & Cool', desc: 'Controlled post-heat treatment and slow cooling minimize distortion and residual stress in the weld zone.' },
+            { step: '6', title: 'Precision Line Boring', desc: 'The rebuilt bore is line-bored to final OEM specification, ready for a new pin and bushing.' },
+          ].map(item => (
+            <li class="flex space-x-4">
+              <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                {item.step}
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">{item.title}</h3>
+                <p class="text-gray-600 text-sm">{item.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- Service Locations -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Service Areas — Ontario</h2>
+        <div class="flex flex-wrap gap-3">
+          {[
+            { city: 'Guelph', slug: 'guelph' },
+            { city: 'Peterborough', slug: 'peterborough' },
+            { city: 'Kingston', slug: 'kingston' },
+            { city: 'Sarnia', slug: 'sarnia' },
+            { city: 'Belleville', slug: 'belleville' },
+          ].map(loc => (
+            <a href={`/locations/${loc.slug}`} class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+              {loc.city}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section id="quote" class="py-16 bg-blue-50">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">Get a Free Preliminary Estimate</h2>
+        <QuoteCalculator />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

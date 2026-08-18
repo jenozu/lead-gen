@@ -1,0 +1,89 @@
+---
+const currentYear = new Date().getFullYear();
+
+const serviceLinks = [
+  { href: '/services/mobile-line-boring', label: 'Mobile Line Boring' },
+  { href: '/services/bore-welding-repair', label: 'Bore Welding Repair' },
+  { href: '/services/pin-bushing-replacement', label: 'Pin & Bushing Replacement' },
+];
+
+const locationLinks = [
+  { href: '/locations/guelph', label: 'Guelph' },
+  { href: '/locations/peterborough', label: 'Peterborough' },
+  { href: '/locations/kingston', label: 'Kingston' },
+  { href: '/locations/sarnia', label: 'Sarnia' },
+  { href: '/locations/belleville', label: 'Belleville' },
+];
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Company Info -->
+      <div class="space-y-4">
+        <h3 class="text-white text-lg font-bold">Ontario Mobile Line Boring</h3>
+        <p class="text-sm">
+          Professional on-site line boring and heavy equipment repair services across Ontario. 
+          Emergency 24/7 service available.
+        </p>
+        <div class="flex items-center space-x-2 text-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          <a href="tel:+15195550123" class="hover:text-white transition-colors">(519) 555-0123</a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Services</h4>
+        <ul class="space-y-2">
+          {serviceLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-sm hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Service Areas -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Service Areas</h4>
+        <ul class="space-y-2">
+          {locationLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-sm hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Emergency CTA -->
+      <div class="bg-red-900 bg-opacity-50 p-4 rounded-lg">
+        <h4 class="text-white font-bold mb-2">24/7 Emergency Service</h4>
+        <p class="text-sm mb-4">Equipment down? We provide rapid response line boring services across Ontario.</p>
+        <a 
+          href="/emergency/24-7-line-boring"
+          class="block w-full bg-red-600 text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors text-sm"
+        >
+          Emergency Service
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+      <p class="text-sm">
+        &copy; {currentYear} Ontario Mobile Line Boring. All rights reserved.
+      </p>
+      <div class="flex space-x-6 text-sm">
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="/terms" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

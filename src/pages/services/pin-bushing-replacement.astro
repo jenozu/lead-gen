@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuoteCalculator from '../../components/QuoteCalculator.astro';
+
+const title = 'Pin & Bushing Replacement Ontario | On-Site Heavy Equipment Pivot Repair';
+const description = 'Mobile pin and bushing replacement services for excavators, loaders, and heavy equipment across Ontario. On-site pivot point repair — eliminates play and restores precision. 24/7 available.';
+---
+
+<BaseLayout title={title} description={description} canonical="/services/pin-bushing-replacement" schema="Service" serviceType="Pin and Bushing Replacement">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16 md:py-24">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <nav aria-label="Breadcrumb" class="mb-6 text-blue-200 text-sm">
+          <ol class="flex items-center space-x-2">
+            <li><a href="/" class="hover:text-white">Home</a></li>
+            <li aria-hidden="true">›</li>
+            <li class="text-white font-medium" aria-current="page">Pin & Bushing Replacement</li>
+          </ol>
+        </nav>
+        <h1 class="text-3xl md:text-5xl font-bold mb-6">Pin & Bushing Replacement Services in Ontario</h1>
+        <p class="text-xl text-blue-100 mb-8 max-w-2xl">
+          Eliminate slop and restore precise control. We replace worn pins and bushings on-site, restoring pivot points to OEM specification — no shop visit required.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/emergency/24-7-line-boring" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
+            24/7 Emergency Service
+          </a>
+          <a href="#quote" class="bg-white hover:bg-gray-100 text-blue-700 px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
+            Get Free Estimate
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Is Pin & Bushing Replacement -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">What Is Pin & Bushing Replacement?</h2>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>Pins and bushings are the wear components at every pivot point of heavy equipment — boom-to-frame, boom-to-stick, stick-to-bucket, blade-to-frame, and more. As equipment works, these components wear, introducing play into the linkage that reduces precision, accelerates wear on adjacent metal, and eventually leads to structural bore damage that requires more extensive repair.</p>
+          <p>Pin and bushing replacement is a high-value maintenance service that, when done on schedule, prevents the escalation from minor wear to expensive bore restoration. When bores are still within tolerance, installing new OEM-quality pins and bushings eliminates play immediately and can add thousands of hours to equipment service life.</p>
+          <p>When bore wear has already occurred, we combine pin and bushing replacement with line boring and, where needed, bore welding — a complete pivot point restoration performed on-site. Our hydraulic press equipment removes worn components without damage to surrounding structures, and precision installation ensures proper fit and minimal break-in wear.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signs It's Time -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Signs Your Equipment Needs Pin & Bushing Service</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {[
+            'Visible movement at pivot points when loaded',
+            'Knocking or clunking sounds from the linkage',
+            'Reduced control precision on the boom, stick, or bucket',
+            'Uneven or accelerated wear on adjacent components',
+            'Grease leaking excessively from pin joints',
+            'Machine failing to hold a load without drift',
+          ].map(sign => (
+            <div class="flex items-start space-x-3 bg-white rounded-lg p-4 border border-gray-100">
+              <svg class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span class="text-gray-700 text-sm">{sign}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">What We Do On-Site</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { title: 'Remove Worn Components', desc: 'Hydraulic press equipment drives out worn pins and bushings without damaging surrounding metal or weld areas.' },
+            { title: 'Inspect & Measure', desc: 'Bore dimensions are checked. If the bore is out of tolerance, line boring and welding are performed before new parts are installed.' },
+            { title: 'Install & Test', desc: 'New OEM-quality pins and bushings are pressed in to specification and greased. A cycle test confirms correct fit and movement.' },
+          ].map(item => (
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+              <h3 class="font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p class="text-gray-600 text-sm">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Locations -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Service Areas — Ontario</h2>
+        <div class="flex flex-wrap gap-3">
+          {[
+            { city: 'Guelph', slug: 'guelph' },
+            { city: 'Peterborough', slug: 'peterborough' },
+            { city: 'Kingston', slug: 'kingston' },
+            { city: 'Sarnia', slug: 'sarnia' },
+            { city: 'Belleville', slug: 'belleville' },
+          ].map(loc => (
+            <a href={`/locations/${loc.slug}`} class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+              {loc.city}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section id="quote" class="py-16 bg-blue-50">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">Get a Free Preliminary Estimate</h2>
+        <QuoteCalculator />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

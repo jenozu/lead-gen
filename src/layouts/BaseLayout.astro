@@ -1,0 +1,145 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import '../styles/global.css';
+
+interface Props extends HTMLAttributes<'html'> {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  schema?: 'LocalBusiness' | 'Service' | 'EmergencyService';
+  serviceType?: string;
+  areaServed?: string[];
+  emergency?: boolean;
+  faqs?: { question: string; answer: string }[];
+}
+
+const {
+  title,
+  description,
+  canonical,
+  image = '/og-image.jpg',
+  schema = 'LocalBusiness',
+  serviceType = 'Mobile Line Boring Service',
+  areaServed = ['Guelph', 'Peterborough', 'Kingston', 'Sarnia', 'Belleville'],
+  emergency = false,
+  faqs,
+  ...props
+} = Astro.props;
+
+const siteUrl = 'https://ontariolineboring.ca';
+const canonicalUrl = canonical ? new URL(canonical, siteUrl).href : new URL(Astro.url.pathname, siteUrl).href;
+
+// Generate schema.org JSON-LD
+const generateSchema = () => {
+  const baseSchema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': schema,
+    name: 'Ontario Mobile Line Boring',
+    description,
+    url: siteUrl,
+    image: `${siteUrl}${image}`,
+    // TODO: Replace with real verified phone number before launch
+    telephone: '+1-519-555-0123',
+    areaServed: areaServed.map(city => ({
+      '@type': 'City',
+      name: city,
+      addressRegion: 'ON',
+      addressCountry: 'CA',
+    })),
+    openingHoursSpecification: emergency
+      ? {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+          opens: '00:00',
+          closes: '23:59',
+        }
+      : {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '07:00',
+          closes: '18:00',
+        },
+    priceRange: '$$$',
+  };
+
+  if (schema === 'Service' || schema === 'EmergencyService') {
+    Object.assign(baseSchema, {
+      serviceType,
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'Ontario Mobile Line Boring',
+        url: siteUrl,
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Line Boring Services',
+        itemListElement: [
+          { '@type': 'Service', name: 'Mobile Line Boring', description: 'On-site precision line boring for heavy equipment' },
+          { '@type': 'Service', name: 'Bore Welding Repair', description: 'Weld buildup and restoration of worn bores' },
+          { '@type': 'Service', name: 'Pin & Bushing Replacement', description: 'Complete pivot point repair services' },
+        ],
+      },
+    });
+  }
+
+  return baseSchema;
+};
+
+const schemaJson = generateSchema();
+
+// FAQPage schema if faqs provided
+const faqSchema = faqs && faqs.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    }
+  : null;
+---
+
+<!doctype html>
+<html lang="en" {...props}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${image}`} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${image}`} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Schema.org JSON-LD -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schemaJson)} />
+    {faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-50 text-gray-900 antialiased">
+    <slot />
+  </body>
+</html>

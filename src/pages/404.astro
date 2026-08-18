@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Ontario Mobile Line Boring"
+  description="The page you're looking for doesn't exist. Return to the homepage or contact us for emergency service."
+>
+  <Header />
+  <main class="min-h-screen flex items-center justify-center bg-gray-50 py-20">
+    <div class="text-center px-4 max-w-md mx-auto">
+      <div class="text-8xl font-bold text-blue-600 mb-4">404</div>
+      <h1 class="text-2xl font-bold text-gray-900 mb-4">Page Not Found</h1>
+      <p class="text-gray-600 mb-8">
+        The page you're looking for doesn't exist. If you need emergency line boring service, call us now — we're available 24/7.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+          Back to Homepage
+        </a>
+        <a href="/emergency/24-7-line-boring" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+          Emergency Service
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

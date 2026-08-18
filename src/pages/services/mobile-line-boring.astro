@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuoteCalculator from '../../components/QuoteCalculator.astro';
+
+const title = 'Mobile Line Boring Services Ontario | On-Site Precision Machining';
+const description = 'Professional mobile line boring services for heavy equipment across Ontario. On-site bore restoration, welding, and precision machining. 24/7 emergency response available.';
+---
+
+<BaseLayout title={title} description={description} canonical="/services/mobile-line-boring" schema="Service" serviceType="Mobile Line Boring">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16 md:py-24">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <nav aria-label="Breadcrumb" class="mb-6 text-blue-200 text-sm">
+          <ol class="flex items-center space-x-2">
+            <li><a href="/" class="hover:text-white">Home</a></li>
+            <li aria-hidden="true">›</li>
+            <li class="text-white font-medium" aria-current="page">Mobile Line Boring</li>
+          </ol>
+        </nav>
+        <h1 class="text-3xl md:text-5xl font-bold mb-6">Mobile Line Boring Services in Ontario</h1>
+        <p class="text-xl text-blue-100 mb-8 max-w-2xl">
+          On-site precision bore restoration for heavy equipment — excavators, loaders, dozers, and more. We come to your job site and restore worn bores to OEM specifications without moving your machine.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/emergency/24-7-line-boring" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
+            24/7 Emergency Service
+          </a>
+          <a href="#quote" class="bg-white hover:bg-gray-100 text-blue-700 px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
+            Get Free Estimate
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Is Line Boring -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">What Is Mobile Line Boring?</h2>
+        <div class="prose prose-lg text-gray-700 space-y-4">
+          <p>Line boring is the process of restoring worn or damaged cylindrical bores — the pivot points that connect the boom, stick, bucket, and other components of heavy equipment — back to their original circular form and dimensions. Over time, these bores wear unevenly due to constant load, vibration, and contamination, causing play, imprecise control, and accelerated wear on adjacent components.</p>
+          <p>Traditional repair requires removing the worn component and transporting it to a machine shop. Mobile line boring eliminates that cost entirely. Our technicians bring a portable line boring machine to your location — your yard, job site, or plant floor — and perform the bore restoration in-place. The machine is clamped across the worn bore and driven by a precision spindle that cuts the bore back to a perfectly cylindrical, on-specification surface.</p>
+          <p>The result is a bore restored to OEM tolerances, ready for a new pin and bushing. In most cases the entire process — from setup to final measurement — is completed in four to eight hours, getting your equipment back in service the same day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Benefits of On-Site Mobile Line Boring</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: 'No Transport Required', desc: 'We come to your site. No crane moves, no flatbed costs, no machine downtime spent in transit.' },
+            { title: 'OEM Precision', desc: 'Laser-guided equipment restores bores to within manufacturer tolerances for proper pin and bushing fit.' },
+            { title: '50–70% Cost Savings', desc: 'Bore restoration typically costs a fraction of component replacement, and extends equipment service life significantly.' },
+            { title: '24/7 Emergency Availability', desc: 'Equipment failures do not follow business hours. Our 24/7 dispatch minimizes costly unplanned downtime.' },
+            { title: 'All Equipment Types', desc: 'Excavators, loaders, dozers, backhoes, cranes, agricultural machinery, and custom industrial applications.' },
+            { title: 'Bore Sizes 2″ – 20″', desc: 'Our portable equipment handles a full range of bore sizes common in construction and agricultural equipment.' },
+          ].map(b => (
+            <div class="bg-white rounded-lg p-6 border border-gray-100 shadow-sm flex items-start space-x-4">
+              <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">{b.title}</h3>
+                <p class="text-gray-600 text-sm">{b.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipment We Service -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Equipment We Service</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {['Excavators', 'Wheel Loaders', 'Track Dozers', 'Backhoes & Backhoe Loaders', 'Skid Steers', 'Cranes', 'Agricultural Tractors', 'Combines & Harvesters', 'Forestry Equipment', 'Mining Equipment', 'Dump Trucks', 'Material Handling Equipment'].map(item => (
+            <div class="bg-gray-50 rounded-lg px-4 py-3 text-gray-700 text-sm font-medium">{item}</div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Locations -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Service Areas</h2>
+        <p class="text-gray-600 mb-4">We currently provide mobile line boring services across the following Ontario cities. Click a city to view local response times and contact information.</p>
+        <div class="flex flex-wrap gap-3">
+          {[
+            { city: 'Guelph', slug: 'guelph' },
+            { city: 'Peterborough', slug: 'peterborough' },
+            { city: 'Kingston', slug: 'kingston' },
+            { city: 'Sarnia', slug: 'sarnia' },
+            { city: 'Belleville', slug: 'belleville' },
+          ].map(loc => (
+            <a href={`/locations/${loc.slug}`} class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+              {loc.city}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section id="quote" class="py-16 bg-blue-50">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">Get a Free Preliminary Estimate</h2>
+        <QuoteCalculator />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
