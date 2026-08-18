@@ -12,12 +12,12 @@ This is the single-source checklist for the LeadGen sandbox project. Keep this f
 
 ## 1. Project & Repo (P0)
 - [x] Initialize project directory and commit initial import (local) — done
-- [ ] Create remote GitHub repository `jenozu/lead-gen` and push main branch (requires remote) — ACTION: push when remote available
+- [x] Create remote GitHub repository `jenozu/lead-gen` and push main branch — done
 - [ ] Add README / deployment notes to repository (review & finalize)
 
 ## 2. Access & Automation (P0)
 - [x] Generate per-VPS SSH keypair (scoped) — done
-- [ ] Add public key as deploy key with write access on `jenozu/lead-gen` (or install GitHub App) — ACTION: add on GitHub
+- [x] Add SSH key with write access for `jenozu/lead-gen` — done
 - [ ] Decide automation model: Deploy key (quick) / Bot account / GitHub App (recommended for scale)
 - [ ] If GitHub App chosen: create App, download private key, install in repo (I can help wire it)
 
@@ -52,7 +52,7 @@ This is the single-source checklist for the LeadGen sandbox project. Keep this f
 ## 7. Testing, QA & CI (P1)
 - [x] Basic build test — `npm run build` passes — done
 - [ ] Add automated test runner (unit tests) and run in CI
-- [ ] Add GitHub Actions workflow (or Vercel preview) for PR builds
+- [x] Add GitHub Actions workflow for builds and Astro diagnostics — done
 - [ ] Create acceptance tests for MVP functional criteria (quote API, location pages, emergency calculator)
 
 ## 8. Security & Privacy (P0)

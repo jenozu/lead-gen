@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .vercel/
+.ssh/
 .env
 .env.*
 !.env.example
